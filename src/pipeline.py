@@ -3,8 +3,9 @@ from src.data_loading import load_train_data, load_test_data, load_rul_data
 from src.preprocessing import compute_train_rul, compute_test_rul, cap_rul, remove_constant_columns, scale_features
 from src.feature_engineering import create_window_features, create_lstm_sequences
 import pandas as pd
+from src.config import WINDOW_SIZE
 
-def build_dataset(train_path, test_path, rul_path, cap=125, lstm=False, window_size=30):
+def build_dataset(train_path, test_path, rul_path, cap=125, lstm=False, window_size=WINDOW_SIZE):
     """
     Load, preprocess, and feature engineer the CMAPSS dataset.
     

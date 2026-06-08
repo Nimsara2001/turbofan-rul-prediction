@@ -16,6 +16,8 @@ def main(model_type, train_path, test_path, rul_path):
         train_path, test_path, rul_path, lstm=lstm
     )
 
+    joblib.dump(scaler, "models/scaler.pkl")
+
     if model_type.lower() == "xgb":
         model, rmse, mae = train_xgboost(X_train, y_train, X_test, y_test)
         joblib.dump(model, "models/xgb_model.pkl")
